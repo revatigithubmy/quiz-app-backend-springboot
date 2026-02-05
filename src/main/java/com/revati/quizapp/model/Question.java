@@ -1,4 +1,4 @@
-package com.revati.quizapp.entities;
+package com.revati.quizapp.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
