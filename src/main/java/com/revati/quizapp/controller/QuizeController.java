@@ -2,6 +2,7 @@ package com.revati.quizapp.controller;
 
 
 import com.revati.quizapp.model.QuestionWrapper;
+import com.revati.quizapp.model.Response;
 import com.revati.quizapp.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,5 +25,11 @@ public class QuizeController {
     @GetMapping("get/{id}")
     public ResponseEntity<List<QuestionWrapper>> getQuizQuestions(@PathVariable Integer id){
          return  quizeService.getQuizQuestions(id);
+    }
+
+    @PostMapping("submit/{id}")
+    public ResponseEntity<Integer> submitQuiz(@PathVariable Integer id,@RequestBody List<Response> response ){
+        return quizeService.calculateResult(id,response);
+
     }
 }
